@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+var debug = require('debug')('Aphrodite');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
+
+
+kafkaesque = require('kafkaesque')({
+    brokers: [{host: '127.0.0.1', port: 9092}],
+    clientId: 'MrFlibble',
+    maxBytes: 2000000
+});
+aphrodite
+// tearup the client
+kafkaesque.tearUp(function() {
+    /**
+    // send two messages to the testing topic
+    kafkaesque.produce({topic: 'testing', partition: 0},
+        ['wotcher mush', 'orwlight geezer'],
+        function(err, response) {
+            // shutdown connection
+            console.log(response);
+            kafkaesque.tearDown();
+        });
+     */
+});
+
+/**
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function(socket){
+    socket.emit('connected');
+    debug("socket.io connected");
+});
+*/
