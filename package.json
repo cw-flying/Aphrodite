@@ -19,6 +19,7 @@
     "passport-local": "*",
     "connect-flash": "*",
     "bcrypt-nodejs": "*",
-    "kafkaesque": "~0.1.1"
+    "kafkaesque": "~0.1.1",
+    "express-session": "~1.7.2"
   }
 }
