@@ -8,17 +8,21 @@ router.post('/:userid', function(req, res) {
         var token = req.header('token');
         var data = req.body;
         var msg = [];
+
+        console.log(data);
         msg.push(JSON.stringify(data));
+        console.log(msg);
 
         // send two messages to the testing topic
         kafkaesque.produce({topic: 'testing', partition: 0},
             msg,
             function(err, response) {
                 if (err) {
-
+                    console.log(err);
                 } else {
 
                 }
+                console.log(response);
             });
         res.json(200,'ok');
 //    } else {
